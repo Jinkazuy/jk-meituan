@@ -1,6 +1,6 @@
 # jk-nuxt-meituan
 
-> My astounding Nuxt.js project
+> My sweet Nuxt.js project
 
 ## Build Setup
 

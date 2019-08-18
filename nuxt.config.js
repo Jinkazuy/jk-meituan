@@ -19,10 +19,13 @@ module.exports = {
   ** Customize the progress-bar color
   */
   loading: { color: '#fff' },
-  /*
-  ** Global CSS
-  */
+
+  // 全局css
   css: [
+    // 这里增加
+    'element-ui/lib/theme-chalk/reset.css',
+    // 老师提供的css文件
+    '~assets/css/main.css',
     'element-ui/lib/theme-chalk/index.css'
   ],
   /*
@@ -62,5 +65,7 @@ module.exports = {
     */
     extend (config, ctx) {
     }
+  //   这里如果想增加编译的速度，可以设置缓存
+  //   ,cache: true
   }
 }
