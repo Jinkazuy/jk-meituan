@@ -1,3 +1,6 @@
+<!--// **********-->
+<!--// 产品详情页面包屑-->
+<!--// **********-->
 <template>
   <div class="m-crumbs">
     <el-breadcrumb separator=">">

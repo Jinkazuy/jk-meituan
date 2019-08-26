@@ -109,7 +109,9 @@ router.get('/resultsByKeywords', async (ctx) => {
   }
 })
 
+// 获取商品详情页数据
 router.get('/products', async (ctx) => {
+  // 这里避免请求体出现空数据，所以默认了一些文字；
   const keyword = ctx.query.keyword || '旅游'
   const city = ctx.query.city || '北京'
   const {
@@ -127,10 +129,13 @@ router.get('/products', async (ctx) => {
   if (status === 200) {
     ctx.body = {
       product,
+      // 这个isAuthenticated是用来判断是否登录了，这个API是 Passport提供的
+      // 如果登录了，就返回商品优惠套餐信息，如果是未登录就返回空数据；
       more: ctx.isAuthenticated() ? more : [],
       login: ctx.isAuthenticated()
     }
   } else {
+    // 请求失败也要返回响应数据，否则前台文件会报错；
     ctx.body = {
       product: {},
       more: ctx.isAuthenticated() ? more : [],

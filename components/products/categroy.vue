@@ -1,3 +1,6 @@
+<!--// *******-->
+<!--// 分类组件-->
+<!--// *******-->
 <template>
   <div class="m-product-categroy">
     <dl class="classic">
@@ -7,12 +10,14 @@
         v-for="(item,idx) in types"
         :key="idx"
       >
+        <!--// 将分类内容放到下拉框组件，然这个组件进行循环，这里就不用再写循环了-->
         <iselect
           :name="item.type"
           :list="item.module"
         />
       </dd>
     </dl>
+    <!--// 下边这个分类和上边一样-->
     <dl class="classic">
       <dt>分类</dt>
       <dt>全部</dt>
@@ -30,11 +35,14 @@
 </template>
 
 <script>
+// 下拉框组件
 import iselect from './iselect.vue'
 export default {
   components: {
+    // 挂载下拉框组件
     iselect
   },
+  // 拿到父级传过来的数据
   props: {
     types: {
       type: Array,

@@ -1,3 +1,4 @@
+<!--// 商品卡片组件-->
 <template>
   <dl class="s-item">
     <dt>

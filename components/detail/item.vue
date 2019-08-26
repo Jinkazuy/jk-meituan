@@ -45,6 +45,7 @@ export default {
     }
   },
   methods: {
+    // 创建购物车
     async createCart () {
       const self = this
       const {
@@ -55,7 +56,9 @@ export default {
         }
       } = await this.$axios.post('/cart/create', {
         params: {
+          // id，商品id，这里随机数编了一个
           id: Math.random().toString().slice(3, 9),
+          // 商品详情数据
           detail: {
             name: self.meta.name,
             price: self.meta.biz_ext.cost,
@@ -63,6 +66,8 @@ export default {
           }
         }
       })
+      // 如果创建购物车成功了，那么就跳转到购物车页，并且把购物车id传过去
+      // 购物车详情页拿到购物车id，发送请求获取购物车详情数据；
       if (status === 200 && code === 0) {
         window.location.href = `/cart/?id=${id}`
       } else {
